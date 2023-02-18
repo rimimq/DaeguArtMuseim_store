@@ -235,13 +235,22 @@ input[id="menuvar"]:checked + label + div {
     transition: all .4s;
 }
 
-.menu-list-logo img {
-    width: 25vw;
+.menu-list-logo {
+    -webkit-transform: translateY(50);
+    width: 35%;
     bottom: 0;
-    float: right;
     margin: 120px 20px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    transition: ease 0.5s;
 }
-
+.menu-list-logo.on {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: .1s;
+}
 
 
 
@@ -295,14 +304,21 @@ input[id="menuvar"]:checked + label + div {
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
     width: 100%;
-    display: grid;
     font-size: 2.3vh;
+    display: grid;
     grid-template-areas: 
     "bar . Nav2"
     "Logo Logo Logo";
     grid-template-columns: 100px 1fr 100px;
     grid-template-rows: 50px 80px;
     gap: 40px;
+}
+.navbar.scoll-event::before {
+    display: grid;
+    grid-template-areas: 
+    "bar Logo Nav2";
+    grid-template-columns: 100px 1fr 100px;
+    grid-template-rows: 70px;
 }
 .navbar:hover {
     background-color: rgba(255, 255, 255, 2);
@@ -328,7 +344,10 @@ input[id="menuvar"]:checked + label + div {
     margin-bottom: 10px;
 }
 .nav-h_logo img {
-    width: 98%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    transition: .2s;
 }
 .H_NAV { grid-area: Nav2; }
 .H_NAV_2{
@@ -494,6 +513,7 @@ input[id="menuvar"]:checked + label + div {
     position: fixed;
     justify-items: end;
     align-items: flex-end;
+    z-index: 999999;
 }
 .chat-icon {
     position: absolute;
@@ -533,7 +553,7 @@ input[id="menuvar"]:checked + label + div {
     width: 169px;
     height: 12px;
     right: 185px;
-    left: 0;
+    left: 15;
     top: 18px;
 }
 .chat-top i {
@@ -590,6 +610,9 @@ input[id="menuvar"]:checked + label + div {
     align-items: center;
     justify-items: center;
 }
+.filter_right{
+    display: none;
+}
 
 
 /* 가로해상도가 768px이상 _tablet CSS */
@@ -606,12 +629,11 @@ input[id="menuvar"]:checked + label + div {
     }
 }
 
-
 /* 가로해상도 1024px 이상_Desktop CSS*/
 @media (min-width:1024px){
     .navbar {
-        grid-template-areas: "Logo Nav1 Nav2";
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "Nav1 Logo Nav2";
+        grid-template-columns: 1.3fr 1fr 1fr;
         grid-template-rows: 100%;
         border-bottom: 1px solid #222;
         background: rgba(255, 255, 255, 0.3);
@@ -634,13 +656,13 @@ input[id="menuvar"]:checked + label + div {
         grid-area: Nav1;
         display: flex;
         list-style: none;
-        justify-content: center;
+        justify-content: flex-start;
     }
     .H_NAV_1 a {
         font-size: 1vw;
         font-weight: 350;
         padding: 10px;
-        margin: 0px 20px 0px 20px;
+        margin: 0px 15px 0px 15px;
         text-decoration: none;
         display: flex;
         justify-content: center;
@@ -666,11 +688,13 @@ input[id="menuvar"]:checked + label + div {
         font-weight: 350;
         display: flex;
         justify-content: center;
-        margin: 0px 20px 0px 20px;
+        margin: 0px 17px 0px 17px;
         text-decoration: none;
         color: #222;
     }
     .H_NAV_Desk a:visited {
         color: #222;
     }
+
+    
 }

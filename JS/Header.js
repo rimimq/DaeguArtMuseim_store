@@ -100,7 +100,29 @@ function init() {
         chtScr.classList.add('d-none');
     })
 
+    // const headerScroll = document.querySelector(".scollevent");
+    // headerScroll.addEventListener("scroll", () => {
+    //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    //     if (scrollTop > scrollUp) {
+    //         scrollevent.style.top = "-80px";
+    //     } else {
+    //         scrollevemt.style.top = "0";
+    //     }
+    //     scrollUp = scrollTop;
+    // })
+    let target = $('.menu-list-logo')
+    target.each(function (i, v) {
+        $(this).waypoint(function () {
+            $(v).addclass('on')
+        }, {
+            offset: '100%'
+        })
+    })
+
 }
+// Kakao.init('4d07448985a8fbda12e7eea2ec1d345a');
+// Kakao.isInitialized();
+// console.log(Kakao.isInitialized());//초기화 판단여부
 
 //햄버거
 // document.querySelector('.btn-menu').addEventListener('click', ()=> {
